@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  :root {
+    --sidebar-width: 240px;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-feature-settings: 'ss01', 'cv01';
+  }
+
+  /* Custom scrollbar — dark theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #334155;
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+}
+
+@layer components {
+  /* Glass card — used throughout modules */
+  .glass-card {
+    @apply bg-slate-800/60 border border-slate-700/50 rounded-xl backdrop-blur-sm;
+  }
+
+  /* Status dot */
+  .status-dot {
+    @apply w-2 h-2 rounded-full flex-shrink-0;
+  }
+  .status-dot.running  { @apply bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.6)]; }
+  .status-dot.stopped  { @apply bg-slate-500; }
+  .status-dot.pending  { @apply bg-amber-400 animate-pulse; }
+  .status-dot.error    { @apply bg-red-400; }
+
+  /* Mono metric value */
+  .metric-value {
+    @apply font-mono text-2xl font-medium text-white tabular-nums;
+  }
+
+  /* Section heading inside module */
+  .module-heading {
+    @apply text-xs font-medium uppercase tracking-widest text-slate-400;
+  }
+}
